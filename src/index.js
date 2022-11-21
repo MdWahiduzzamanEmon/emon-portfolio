@@ -11,7 +11,7 @@ ReactDOM.render(
     <ThemeContextProvider>
       <App /> 
     </ThemeContextProvider>,
-  document.getElementById('root') ;
+  document.getElementById('root')
 );
 
 

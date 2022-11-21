@@ -7,3 +7,4 @@ export const headerData = {
     imagebw: 'https://i.ibb.co/Cw2Xp90/abu-said-bw.jpg',
     resumePdf: 'https://docs.google.com/document/d/1OmxnrxHbrfQkL7e3BG40HgSmYCWzNSxo9Wa-kOPVPSc/edit?usp=sharing'
 }
+
