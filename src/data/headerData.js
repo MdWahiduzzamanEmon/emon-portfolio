@@ -1,10 +1,10 @@
-
+import myPhoto from '../assets/Avro copy.png';
 export const headerData = {
     name: 'Md Wahiduzzaman Emon',
     title: "Hello! I am",
-    desciption: "Hello! I am ABU SAID, a professional and passionate programmer in my daily life. A quick learner with a self-learning attitude. I love to learn and explore new technologies and am Passionate about Problem Solving. ",
-    image: 'https://i.ibb.co/ZmdNH6x/abu-said.jpg',
-    imagebw: 'https://i.ibb.co/Cw2Xp90/abu-said-bw.jpg',
-    resumePdf: 'https://docs.google.com/document/d/1OmxnrxHbrfQkL7e3BG40HgSmYCWzNSxo9Wa-kOPVPSc/edit?usp=sharing'
+    desciption: "Hey, I am a Frontend Developer. I love to build things that live on the internet, with a focus on creating a beautiful and intuitive user experience. I am passionate about building excellent software that improves the lives of those around me.",
+    image: myPhoto,
+    imagebw: myPhoto,
+    resumePdf: 'https://drive.google.com/u/0/uc?id=1720OFVoudzHWR7qxnM5RpjhYLrtVCFPw&export=download'
 }
 
