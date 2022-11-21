@@ -20,6 +20,7 @@ function Contacts() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [subject, setSubject] = useState('');
     const [success, setSuccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
     const form = useRef();
@@ -117,21 +118,32 @@ function Contacts() {
 
     const handleContactForm = (e) => {
         e.preventDefault();
+        const msgBody = {
+            name,
+            email,
+            subject,
+            message,
+        }
 
         if (name && email && message) {
             if (isEmail(email)) {
-                emailjs.sendForm('service_qxwd33p', 'template_rchyera', form.current, 'Xswf-fBSF_Z-h8fvU')
-                    .then((result) => {
-                        console.log('success');
-                        setSuccess(true);
-                        setErrMsg('');
-                        setName('');
-                        setEmail('');
-                        setMessage('');
-                        setOpen(false);
-                    }, (error) => {
-                        console.log(error.text);
-                    });
+                emailjs.send(
+                    "service_r2vkaos",
+                    "template_9a9b0xe",
+                    msgBody,
+                    "n1qcFQx06aCq-QfH9"
+                ).then((result) => {
+                    console.log('success');
+                    setSuccess(true);
+                    setErrMsg('');
+                    setName('');
+                    setEmail('');
+                    setMessage('');
+                    setSubject('');
+                    setOpen(false);
+                }, (error) => {
+                    console.log(error.text);
+                });
             } else {
                 setErrMsg('Invalid email');
                 setOpen(true);
@@ -158,7 +170,7 @@ function Contacts() {
                                     Name
                                 </label>
                                 <input
-                                    placeholder='John Doe'
+                                    placeholder='Your name'
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     type='text'
@@ -174,11 +186,27 @@ function Contacts() {
                                     Email
                                 </label>
                                 <input
-                                    placeholder='John@doe.com'
+                                    placeholder='Your Email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     type='email'
                                     name='user_email'
+                                    className={`form-input ${classes.input}`}
+                                />
+                            </div>
+                            <div className='input-container'>
+                                <label
+                                    htmlFor='Subject'
+                                    className={classes.label}
+                                >
+                                    Subject
+                                </label>
+                                <input
+                                    placeholder='Subject'
+                                    value={subject}
+                                    onChange={(e) => setSubject(e.target.value)}
+                                    type='text'
+                                    name='subject'
                                     className={`form-input ${classes.input}`}
                                 />
                             </div>
@@ -274,17 +302,22 @@ function Contacts() {
                                 {contactsData.email}
                             </p>
                         </a>
-                        <a
-                            href={`tel:${contactsData.phone}`}
-                            className='personal-details'
-                        >
-                            <div className={classes.detailsIcon}>
-                                <FiPhone />
-                            </div>
-                            <p style={{ color: theme.tertiary }}>
-                                {contactsData.phone}
-                            </p>
-                        </a>
+                        {
+                            contactsData.phone.map((phone, index) => (
+                                <a
+                                    href={`tel:${phone}`}
+                                    className='personal-details'
+                                >
+                                    <div className={classes.detailsIcon}>
+                                        <FiPhone />
+                                    </div>
+                                    <p style={{ color: theme.tertiary }}>
+                                        {phone}
+                                    </p>
+                                </a>
+                            )
+                        )
+                        }
                         <div className='personal-details'>
                             <div className={classes.detailsIcon}>
                                 <HiOutlineLocationMarker />

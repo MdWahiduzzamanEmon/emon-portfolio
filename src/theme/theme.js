@@ -1,9 +1,28 @@
 /* eslint-disable */
 import { contactsGreen } from './images'
+const colors = [
+    '#FFC107',
+    '#FF9800',
+    '#FF5722',
+    '#795548',
+    '#607D8B',
+    '#2196F3',
+    '#009688',
+    '#4CAF50',
+    '#8BC34A',
+    '#CDDC39',
+    '#FFEB3B',
+    '#FFC107',
+    '#FF9800',
+    '#FF5722',
+    '#795548',
+    '#607D8B',
+    '#2196F3',
+]
 
 export const theLightTheme = {
     type: 'light',
-    primary: '#1D9BF0',
+    primary: colors[Math.floor(Math.random() * colors.length)],
     quaternary: '#EFF3F4',
     quaternaryLight: '#F7F9F9',
     secondary: '#ffffff',
@@ -14,7 +33,7 @@ export const theLightTheme = {
 
 export const theDarkTheme = {
     type: 'dark',
-    primary: '#1D9BF0',
+    primary: colors[Math.floor(Math.random() * colors.length)],
     quaternary: '#1E2732',
     quaternaryLight: '#8b98a5',
     secondary: '#15202B',
