@@ -9,9 +9,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <ThemeContextProvider>
-      <App />
+      <App /> 
     </ThemeContextProvider>,
-  document.getElementById('root')
+  document.getElementById('root') ;
 );
 
 
