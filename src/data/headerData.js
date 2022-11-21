@@ -1,6 +1,6 @@
 
 export const headerData = {
-    name: 'ABU SAID',
+    name: 'Md Wahiduzzaman Emon',
     title: "Hello! I am",
     desciption: "Hello! I am ABU SAID, a professional and passionate programmer in my daily life. A quick learner with a self-learning attitude. I love to learn and explore new technologies and am Passionate about Problem Solving. ",
     image: 'https://i.ibb.co/ZmdNH6x/abu-said.jpg',
