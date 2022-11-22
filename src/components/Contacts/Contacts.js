@@ -3,7 +3,7 @@ import { IconButton, Snackbar, SnackbarContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useContext, useRef, useState } from 'react';
 import { AiOutlineCheckCircle, AiOutlineSend } from 'react-icons/ai';
-import { FaFacebook, FaGithub, FaLinkedinIn, FaMediumM, FaStackOverflow, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedinIn, FaMediumM, FaStackOverflow, FaTwitter, FaYoutube, FaInstagram, FaDev } from 'react-icons/fa';
 import { FiAtSign, FiPhone } from 'react-icons/fi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
@@ -328,14 +328,14 @@ function Contacts() {
                         </div>
 
                         <div className='socialmedia-icons'>
-                            {socialsData.twitter && (
+                            {socialsData.instagram && (
                                 <a
-                                    href={socialsData.twitter}
+                                    href={socialsData.instagram}
                                     target='_blank'
                                     rel='noreferrer'
                                     className={classes.socialIcon}
                                 >
-                                    <FaTwitter aria-label='Twitter' />
+                                    <FaInstagram aria-label='instagram' />
                                 </a>
                             )}
                             {socialsData.github && (
@@ -359,14 +359,14 @@ function Contacts() {
                                 </a>
                             )}
 
-                            {socialsData.medium && (
+                            {socialsData.dev && (
                                 <a
-                                    href={socialsData.medium}
+                                    href={socialsData.dev}
                                     target='_blank'
                                     rel='noreferrer'
                                     className={classes.socialIcon}
                                 >
-                                    <FaMediumM aria-label='Medium' />
+                                    <FaDev aria-label='dev' />
                                 </a>
                             )}
 

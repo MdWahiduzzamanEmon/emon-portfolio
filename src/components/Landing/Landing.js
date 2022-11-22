@@ -9,7 +9,7 @@ import { socialsData } from '../../data/socialsData';
 import './Landing.css';
 
 import {
-    FaFacebook, FaGithub, FaLinkedin, FaTwitter
+    FaFacebook, FaGithub, FaLinkedin, FaTwitter, FaDev
 } from 'react-icons/fa';
 
 function Landing() {
@@ -97,16 +97,16 @@ function Landing() {
                                 />
                             </a>
                         )}
-                        {socialsData.twitter && (
+                        {socialsData.dev && (
                             <a
-                                href={socialsData.twitter}
+                                href={socialsData.dev}
                                 target='_blank'
                                 rel='noreferrer'
                             >
-                                <FaTwitter
+                                <FaDev
                                     className='landing--social twitter-icon'
                                     style={{ color: theme.primary }}
-                                    aria-label='Twitter'
+                                    aria-label='dev'
                                 />
                             </a>
                         )}
