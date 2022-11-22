@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Box, Grid, Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
@@ -14,11 +14,46 @@ import './projectPage.css';
 function ProjectPage() {
     const [search, setSearch] = useState('')
     const { theme } = useContext(ThemeContext);
+    const [filteredArticles, setFilteredArticles] = useState([]);
 
-    const filteredArticles = projectsData.filter((project) => {
-        const content = project.projectName + project.projectDesc + project.tags
-        return content.toLowerCase().includes(search.toLowerCase())
-    })
+    React.useEffect(() => {
+        if (search === '') {
+            setFilteredArticles(projectsData);
+        }
+        else {
+            const data = projectsData.filter((project) => {
+                const content = project.projectName + project.projectDesc + project.tags
+                return content.toLowerCase().includes(search.toLowerCase())
+            })
+            setFilteredArticles(data)
+        }
+    }, [search])
+
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    }
+
+    const handleType = (type) => {
+        if (type === 'all') {
+            setFilteredArticles(projectsData)
+        }
+        if (type === "Personal") {
+            const data = projectsData.filter((project) => project.type === "Personal")
+            setFilteredArticles(data)
+        }
+        if (type === "Professional") {
+            const data = projectsData.filter((project) => project.type === "Professional")
+            setFilteredArticles(data)
+        }
+        if (type === "OpenSource") {
+            const data = projectsData.filter((project) => project.type === "OpenSource")
+            setFilteredArticles(data)
+        }
+    }
+
+
 
     const useStyles = makeStyles((t) => ({
         search: {
@@ -71,7 +106,7 @@ function ProjectPage() {
             <Helmet>
                 <title>{headerData.name} | Projects</title>
             </Helmet>
-            <div className="projectPage-header" style={{ backgroundColor: theme.primary }}>
+            <div className="projectPage-header" style={{ background: theme.bgGradient }}>
                 <Link to="/">
                     <AiOutlineHome className={classes.home} />
                 </Link>
@@ -81,6 +116,37 @@ function ProjectPage() {
                 <div className="projectPage-search">
                     <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search project..." className={classes.search} />
                 </div>
+                <Box sx={{ width: '100%', bgcolor: theme.secondary, display: 'flex', justifyContent: 'center' }}>
+                    <Tabs value={value} onChange={handleChange} variant="scrollable"
+                        scrollButtons="auto"
+                        aria-label="scrollable auto tabs example">
+                        <Tab label="All"
+                            onClick={() => {
+                                handleType('all')
+                                setValue(0)
+                            }}
+                        />
+                        <Tab label="Professional"
+                            onClick={() => {
+                                handleType('Professional')
+                                setValue(1)
+                            }}
+                        />
+                        <Tab label="Personal"
+                            onClick={() => {
+                                handleType('Personal')
+                                setValue(2)
+                            }}
+                        />
+                       
+                        <Tab label="Open Source"
+                            onClick={() => {
+                                handleType('OpenSource')
+                                setValue(3)
+                            }}
+                        />
+                    </Tabs>
+                </Box>
                 <div className="project-container">
                     <Grid className="project-grid" container direction="row" alignItems="center" justifyContent="center">
                         {filteredArticles.map(project => (

@@ -48,7 +48,14 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                     >
                         {name}
                     </h2>
-                    <img src={image ? image : placeholder} alt={name} />
+                    <img src={image ? image : placeholder} alt={name} style={{
+                        objectFit: 'cover',
+                        width: '100%',
+                        height: '50%',
+                        borderRadius: 5,
+                        marginTop: 10,
+
+                    }} />
                     <div className='project--showcaseBtn'>
                         <a
                             href={demo}
@@ -58,8 +65,8 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                             aria-labelledby={`${name
                                 .replace(' ', '-')
                                 .toLowerCase()} ${name
-                                .replace(' ', '-')
-                                .toLowerCase()}-demo`}
+                                    .replace(' ', '-')
+                                    .toLowerCase()}-demo`}
                         >
                             <FaPlay
                                 id={`${name
@@ -69,7 +76,7 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                                 aria-label='Demo'
                             />
                         </a>
-                        <a
+                        {code && <a
                             href={code}
                             target='_blank'
                             rel='noreferrer'
@@ -77,8 +84,8 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                             aria-labelledby={`${name
                                 .replace(' ', '-')
                                 .toLowerCase()} ${name
-                                .replace(' ', '-')
-                                .toLowerCase()}-code`}
+                                    .replace(' ', '-')
+                                    .toLowerCase()}-code`}
                         >
                             <FaCode
                                 id={`${name
@@ -87,7 +94,7 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                                 className={classes.icon}
                                 aria-label='Code'
                             />
-                        </a>
+                        </a>}
                     </div>
                 </div>
                 <p

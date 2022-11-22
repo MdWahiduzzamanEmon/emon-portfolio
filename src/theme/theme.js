@@ -28,7 +28,9 @@ export const theLightTheme = {
     secondary: '#ffffff',
     tertiary: '#0f1419',
     buttonColor: '#0F1419',
-    contactsimg: contactsGreen
+    contactsimg: contactsGreen,
+    //color array make gradient random color
+    bgGradient: `linear-gradient(90deg, ${colors[Math.floor(Math.random() * colors.length)]} 0%, ${colors[Math.floor(Math.random() * colors.length)]} 100%)`,
 }
 
 export const theDarkTheme = {
@@ -39,5 +41,7 @@ export const theDarkTheme = {
     secondary: '#15202B',
     tertiary: '#EFF3F4',
     buttonColor: '#8B98A5',
-    contactsimg: contactsGreen
+    contactsimg: contactsGreen,
+    //color array make gradient random color
+    bgGradient: `linear-gradient(90deg, ${colors[Math.floor(Math.random() * colors.length)]} 0%, ${colors[Math.floor(Math.random() * colors.length)]} 100%)`,
 }
