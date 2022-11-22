@@ -55,7 +55,9 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
                         borderRadius: 5,
                         marginTop: 10,
 
-                    }} />
+                    }}
+                        loading='lazy'
+                    />
                     <div className='project--showcaseBtn'>
                         <a
                             href={demo}
